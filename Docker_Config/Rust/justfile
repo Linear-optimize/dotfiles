@@ -3,3 +3,8 @@ up:
 
 sh:
     docker-compose exec rust bash
+
+clean:
+    docker compose down -v
+    docker builder prune -a -f
+    docker image prune -f

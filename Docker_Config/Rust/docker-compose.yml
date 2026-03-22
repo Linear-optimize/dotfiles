@@ -1,19 +1,16 @@
 version: "3.9"
-
 services:
   rust:
     build: .
     container_name: rust-dev
-    working_dir: /workspace
     volumes:
       - .:/workspace
-      - cargo-cache:/usr/local/cargo
+      
+      - cargo-registry:/usr/local/cargo/registry
       - target-cache:/workspace/target
-    ports:
-      - "8080:8080"  
     tty: true
     stdin_open: true
 
 volumes:
-  cargo-cache:
+  cargo-registry: 
   target-cache:
