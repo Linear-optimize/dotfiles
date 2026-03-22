@@ -1,11 +1,18 @@
 FROM golang:latest
 
-ENV CGO_ENABLED=0 \
+
+ENV GO111MODULE=on \
+    GOPROXY=https://goproxy.cn,direct \
+    CGO_ENABLED=0 \
     GOPATH=/go \
     PATH=$PATH:/go/bin
 
-ADD build.sh /tmp/build.sh
 
-RUN chmod +x /tmp/build.sh && /tmp/build.sh
+COPY build.sh /tmp/build.sh
+RUN chmod +x /tmp/build.sh && /tmp/build.sh 
+
+WORKDIR /workspace
+
+ENTRYPOINT ["/usr/bin/fish"]
 
 
