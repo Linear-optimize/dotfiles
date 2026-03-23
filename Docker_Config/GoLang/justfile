@@ -1,8 +1,8 @@
 up:
-    docker-compose up -d
+    docker compose up -d
 
 sh:
-    docker-compose exec go bash
+    docker compose exec go bash
 
 clean:
     docker compose down -v

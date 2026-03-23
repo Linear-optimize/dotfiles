@@ -1,0 +1,21 @@
+default:
+    just --list
+up:
+    docker compose up -d
+
+sh-go:
+    docker compose exec go bash
+
+sh-web:
+    docker compose exec web bash    
+	
+sh-db:
+    docker compose exec db bash
+
+clean:
+    docker compose down -v
+    docker builder prune -a -f
+    docker image prune -f
+
+docker-clean:
+    docker systeam prune -a -f
