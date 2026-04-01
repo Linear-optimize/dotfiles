@@ -3,8 +3,8 @@ default:
 up:
     docker compose up -d
 
-sh-go:
-    docker compose exec go fish
+sh-rust:
+    docker compose exec rust fish
 
 sh-web:
     docker compose exec web fish
