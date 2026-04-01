@@ -1,0 +1,17 @@
+{
+  "name": "frontend",
+  "dockerComposeFile": "../docker-compose.yml",
+  "service": "web",
+  "workspaceFolder": "/app",
+  "shutdownAction": "stopCompose",
+  "forwardPorts": [5173, 8080],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vue.volar",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+      ],
+    },
+  },
+}
