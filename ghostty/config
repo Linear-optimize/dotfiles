@@ -1,0 +1,10 @@
+theme = Nord
+window-width = 220
+window-height = 50
+font-family = "Maple Mono NF CN"
+font-style = "Medium"
+window-save-state = always
+gtk-single-instance = false
+cursor-style = bar
+cursor-style-blink = true
+custom-shader = "~/.config/ghostty/shaders/cursor_smear.glsl"
