@@ -1,0 +1,55 @@
+vim.pack.add({
+	"https://github.com/mfussenegger/nvim-dap",
+	"https://github.com/nvim-neotest/nvim-nio",
+	"https://github.com/rcarriga/nvim-dap-ui",
+	"https://github.com/theHamsta/nvim-dap-virtual-text",
+	"https://github.com/jay-babu/mason-nvim-dap.nvim",
+})
+
+vim.api.nvim_create_autocmd("VimEnter", {
+	once = true,
+	callback = function()
+		local ok, dap = pcall(require, "dap")
+		if not ok then
+			return
+		end
+
+		local dapui = require("dapui")
+
+		require("mason-nvim-dap").setup({
+			ensure_installed = { "debugpy", "delve", "codelldb" },
+			automatic_installation = true,
+			handlers = {},
+		})
+
+		dapui.setup()
+		require("nvim-dap-virtual-text").setup()
+
+		-- 断点圆圈符号
+		vim.fn.sign_define("DapBreakpoint", { text = "●", texthl = "DapBreakpoint" })
+		vim.fn.sign_define("DapBreakpointCondition", { text = "◐", texthl = "DapBreakpointCondition" })
+		vim.fn.sign_define("DapStopped", { text = "▶", texthl = "DapStopped" })
+		vim.fn.sign_define("DapBreakpointRejected", { text = "○", texthl = "DapBreakpointRejected" })
+
+		-- 自动开关 UI
+		dap.listeners.after.event_initialized["dapui"] = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated["dapui"] = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited["dapui"] = function()
+			dapui.close()
+		end
+
+		-- Keymaps
+		local m = vim.keymap.set
+		m("n", "<F5>", dap.continue, { desc = "DAP Continue" })
+		m("n", "<F10>", dap.step_over, { desc = "DAP Step Over" })
+		m("n", "<F11>", dap.step_into, { desc = "DAP Step Into" })
+		m("n", "<F12>", dap.step_out, { desc = "DAP Step Out" })
+		m("n", "<leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+		m("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
+		m("n", "<leader>dr", dap.repl.open, { desc = "DAP REPL" })
+	end,
+})

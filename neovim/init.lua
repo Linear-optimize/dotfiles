@@ -1,5 +1,12 @@
-require("config.lazy")
-
-vim.cmd("colorscheme catppuccin-mocha")
-
-
+vim.g.mapleader = " "
+vim.opt.fillchars:append({ eob = " " })
+require("plugins.lsp")
+require("plugins.dashboard")
+require("plugins.dap")
+require("plugins.editor")
+require("plugins.treesitter")
+require("plugins.completion")
+require("plugins.render")
+require("plugins.oil")
+require("plugins.direnv")
+require("plugins.noise")

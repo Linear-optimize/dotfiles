@@ -1,5 +1,3 @@
-return {
-  {
-    "direnv/direnv.vim",
-  },
-}
+vim.pack.add({
+	"https://github.com/direnv/direnv.vim",
+})
