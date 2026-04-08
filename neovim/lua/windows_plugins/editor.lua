@@ -1,7 +1,7 @@
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.pack.add({
-  "https://github.com/nickjvandyke/opencode.nvim",
+
   "https://github.com/lewis6991/gitsigns.nvim",
   "https://github.com/stevearc/conform.nvim",
   "https://github.com/nvim-lualine/lualine.nvim",
@@ -71,17 +71,3 @@ require("bufferline").setup({
 })
 
 require("which-key").setup()
-
-local ok, opencode = pcall(require, "opencode")
-if ok then
-  vim.o.autoread = true
-  vim.keymap.set("n", "<leader>oa", function()
-    opencode.ask("@buffer: ", { submit = true })
-  end, { desc = "OpenCode: Send full buffer" })
-  vim.keymap.set("x", "<leader>oa", function()
-    opencode.ask("@this: ", { submit = true })
-  end, { desc = "OpenCode: Ask selection" })
-  vim.keymap.set({ "n", "t" }, "<C-.>", function()
-    opencode.toggle()
-  end, { desc = "Toggle OpenCode Window" })
-end
