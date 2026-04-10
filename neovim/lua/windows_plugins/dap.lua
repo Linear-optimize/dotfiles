@@ -58,3 +58,4 @@ vim.api.nvim_create_autocmd("VimEnter", {
     m("n", "<leader>du", dapui.toggle, { desc = "Toggle DAP UI" })
     m("n", "<leader>dr", dap.repl.open, { desc = "DAP REPL" })
   end,
+  })    
