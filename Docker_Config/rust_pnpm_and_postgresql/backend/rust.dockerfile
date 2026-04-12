@@ -16,8 +16,8 @@ RUN set -x && \
     printf '[source.crates-io]\nreplace-with = "ustc"\n[source.ustc]\nregistry = "sparse+https://mirrors.ustc.edu.cn/crates.io-index/"\n' \
     > $CARGO_HOME/config.toml && \
     rustup target add x86_64-unknown-linux-musl && \
+    rustup component add rustfmt rust-analyzer rust-src && \
     apt-get autoclean && rm -rf /var/lib/apt/lists/*
-
 
 WORKDIR /workspace
 ENTRYPOINT ["/usr/bin/fish"]
