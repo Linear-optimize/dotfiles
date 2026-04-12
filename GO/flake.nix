@@ -24,22 +24,21 @@
           ];
 
           shellHook = ''
-            # 1. 创建项目私有的 Go 目录
+       
             mkdir -p .go/path .go/cache
 
-            # 2. 隔离环境变量，只影响当前 Shell
+         
             export GOPATH="$(pwd)/.go/path"
             export GOCACHE="$(pwd)/.go/cache"
             export GOENV="$(pwd)/.go/env"
 
-            # 将私有 GOPATH 的 bin 加入 PATH，方便直接运行安装的工具
+        
             export PATH="$GOPATH/bin:$PATH"
 
-            # 3. 设置国内镜像加速 (锁定在当前环境)
             export GO111MODULE="on"
             export GOPROXY="https://goproxy.cn,direct"
 
-            # 4. 自动创建本地 go.env (可选)
+            
             if [ ! -f .go/env ]; then
               go env -w GOPROXY=https://goproxy.cn,direct
               go env -w GO111MODULE=on

@@ -16,12 +16,12 @@
         devShells.default = pkgs.mkShell.override { stdenv = customStdenv; }{
           
           packages = with pkgs; [
-            # 构建工具
+           
             cmake
             ninja
             pkg-config
             
-            # C++ 工具链 (全套 LLVM)
+            
             llvmPackages.clang      
             llvmPackages.libcxx     
             clang-tools             
@@ -29,7 +29,7 @@
             
             stdenv.cc.libc.dev      
             
-            # 调试与开发工具
+          
             bear
             gdb
             valgrind
@@ -39,7 +39,7 @@
           CC = "clang";
           CXX = "clang++";
           
-          # 强制指定 C++ 标准并使用 libc++
+         
           CXXFLAGS = "-std=c++20 -stdlib=libc++";
           
           

@@ -2,7 +2,7 @@
 { config, pkgs, ... }:
 
 {
-  # WSL
+  
   wsl.enable = true;
   wsl.defaultUser = "rene";
   wsl.docker-desktop.enable = true;
@@ -17,7 +17,7 @@ services.dbus.enable = true;
 
 environment.extraInit = ''
     export PATH=$(echo $PATH | tr ':' '\n' | grep -v "/mnt/" | tr '\n' ':' | sed 's/:$//')
-    # 同时强制注入驱动路径，解决之前 glxinfo 的问题
+   
     export LD_LIBRARY_PATH="/usr/lib/wsl/lib:$LD_LIBRARY_PATH"
   '';
 
@@ -36,7 +36,7 @@ hardware.graphics = {
 
 
 
-  # 用户
+
   users.users.rene = {
     isNormalUser = true;
     extraGroups = [ "wheel"]; 
@@ -45,14 +45,14 @@ hardware.graphics = {
       "$6$UtGMaqdMJDSXckHf$FUG4AEWeJH2o9M9eSK10fyjwj0r9YZLI5L6YHvYbFlYstOvasB4GdUVCpltAB72FB485EOq3HFKKpqa.mx82M1";
   };
 
-  # Shell
+  
   environment.shells = with pkgs; [ fish ];
 
   programs.nix-ld.enable = true;
   security.sudo.enable = true;
   security.sudo.wheelNeedsPassword = true;
 
-  # Nix
+  
 nix.settings = {
   experimental-features = [ "nix-command" "flakes" ];
 

@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   home.stateVersion = "23.05";
 
   programs.direnv = {
@@ -40,44 +42,47 @@
     clang-tools
     bear
     valgrind
-   usbutils 
-   
-   		
+    usbutils
+
     noto-fonts-cjk-sans
     qt6.qtbase
 
-    (python3.withPackages (p: with p; [
-      numpy
-      matplotlib
-      scipy
-      pandas
-      pyqt6
-      pylatexenc
-      
-    ]))
+    (python3.withPackages (p:
+      with p; [
+        numpy
+        matplotlib
+        scipy
+        pandas
+        pyqt6
+        pylatexenc
+      ]))
 
     maple-mono.NF-CN-unhinted
-    kitty
+    ghostty
     noto-fonts-color-emoji
 
     yazi
-    tree-sitter	     
+    tree-sitter
     btop
     ripgrep
-   	fd	
-	imagemagick
-	ghostscript
-	tectonic
-	trash-cli
-	sqlite
-	mermaid-cli
-   kmod       
+    fd
+    imagemagick
+    ghostscript
+    tectonic
+    trash-cli
+    sqlite
+    mermaid-cli
+    kmod
     pciutils
-    vulkan-tools 
-    mesa-demos    
-   mesa	 	 	
+    vulkan-tools
+    mesa-demos
+    mesa
 
-   just		
-   tmux
+    just
+    tmux
+    somo
+    go-task
+    alejandra
+    lsof
   ];
 }
