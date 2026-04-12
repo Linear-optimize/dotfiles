@@ -1,0 +1,19 @@
+{
+    "name": "Rust Dev",
+    "dockerComposeFile": "../../docker-compose.yml",
+    "service": "rust",
+    "workspaceFolder": "/workspace",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "rust-lang.rust-analyzer"
+            ],
+            "settings": {
+                "rust-analyzer.linkedProjects": [
+                    "/workspace/demo/Cargo.toml"
+                ]
+            }
+        }
+    },
+    "shutdownAction": "none"
+}

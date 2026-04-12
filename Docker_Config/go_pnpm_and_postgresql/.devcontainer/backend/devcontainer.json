@@ -1,0 +1,21 @@
+{
+    "name": "backend",
+    "dockerComposeFile": "../../docker-compose.yml",
+    "service": "go",
+    "workspaceFolder": "/workspace",
+    "shutdownAction": "none",
+    "forwardPorts": [8080],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "golang.go"
+            ],
+            "settings": {
+                "go.toolsManagement.checkForUpdates": "local",
+                "go.useLanguageServer": true,
+                "go.gopath": "/go",
+                "go.goroot": "/usr/local/go"
+            }
+        }
+    }
+}
