@@ -2,6 +2,7 @@
 {
   wsl.enable = true;
   wsl.defaultUser = "rene";
+  wsl.interop.includePath = true;
   wsl.docker-desktop.enable = true;
 
   xdg.portal = {
@@ -27,12 +28,23 @@
     enable32Bit = true;
   };
 
-  users.users.rene = {
+  users.users = {
+   rene ={
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     hashedPassword =
       "$6$UtGMaqdMJDSXckHf$FUG4AEWeJH2o9M9eSK10fyjwj0r9YZLI5L6YHvYbFlYstOvasB4GdUVCpltAB72FB485EOq3HFKKpqa.mx82M1";
   };
+
+   nixos = {  # 添加这个用户
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
+    initialPassword = "nixos";  # 临时密码，登录后可以改
+  };
+
+  };
+
+  
 
   environment.shells = with pkgs; [ fish ];
 

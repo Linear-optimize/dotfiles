@@ -14,7 +14,7 @@ c.font_size = 14
 
 c.background = {
     {
-        source = {File = "E:/video/walls/anime/a_cartoon_of_a_girl_with_pigtails.png"},
+        source = {File = "xxx"}, -- your image path
         height = '100%',
         width = '100%',
     },
@@ -27,6 +27,6 @@ c.background = {
 }
 
 c.window_decorations = "RESIZE"
-c.default_prog = {"D:/rust/.cargo/bin/nu.exe"}
+c.default_prog = {"xxx"} -- your bash/fish/nushell/powershell path
 
 return c

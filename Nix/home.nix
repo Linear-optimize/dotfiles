@@ -58,7 +58,6 @@
       ]))
 
     maple-mono.NF-CN-unhinted
-    ghostty
     noto-fonts-color-emoji
 
     yazi
@@ -66,12 +65,8 @@
     btop
     ripgrep
     fd
-    imagemagick
     ghostscript
-    tectonic
-    trash-cli
     sqlite
-    mermaid-cli
     kmod
     pciutils
     vulkan-tools
@@ -84,5 +79,11 @@
     go-task
     alejandra
     lsof
+    typst
+    jq
+    mpv
+    go-musicfox
+    wget
+    uv
   ];
 }
