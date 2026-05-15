@@ -24,7 +24,9 @@
 - WSL 2
 - NixOS (WSL 发行版)
 
+## 目录结构
 
-
-
-
+- `nix/`：NixOS 与 Home Manager 相关配置（`flake.nix`、`home.nix`、`configuration.nix` 等）
+- `langs/`：各语言开发环境配置（如 Rust / Go / C++）
+- `containers/`：容器与编排配置（Dockerfile、docker-compose、justfile 等）
+- `apps/`：应用与工具配置（Neovim、tmux、wezterm、ghostty、fastfetch 等）
